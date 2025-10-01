@@ -24,6 +24,7 @@ public class Professionnel extends Person {
     }
 
     public double getRevenu() {
+
         return revenu;
     }
 
@@ -53,5 +54,9 @@ public class Professionnel extends Person {
 
     public void setActivite(String activite) {
         this.activite = activite;
+    }
+    @Override
+    public void calculerScore() {
+
     }
 }
