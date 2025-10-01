@@ -9,6 +9,7 @@ public class Professionnel extends Person {
     private String immatriculationFiscale;
     private SecteurActivite secteurActivite;
     private String activite;
+    private int idPersonne;
 
     public Professionnel(String nom, String prenom, LocalDate dateDeNaissance, String ville,
                          int nombreEnfants, double investissement, double placement,
@@ -21,6 +22,14 @@ public class Professionnel extends Person {
         this.immatriculationFiscale = immatriculationFiscale;
         this.secteurActivite = secteurActivite;
         this.activite = activite;
+    }
+
+    public int getIdPersonne() {
+        return idPersonne;
+    }
+
+    public void setIdPersonne(int idPersonne) {
+        this.idPersonne = idPersonne;
     }
 
     public double getRevenu() {

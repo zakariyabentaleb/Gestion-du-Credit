@@ -10,6 +10,7 @@ public class Employe extends Person {
     private String poste;
     private String typeContrat;       // CDI, CDD, etc.
     private SecteurEmploi secteur;
+    private int idPersonne;
 
     public Employe(String nom, String prenom, LocalDate dateDeNaissance, String ville,
                    int nombreEnfants, double investissement, double placement,
@@ -74,4 +75,11 @@ public class Employe extends Person {
 
     }
 
+    public int getIdPersonne() {
+        return idPersonne;
+    }
+
+    public void setIdPersonne(int idPersonne) {
+        this.idPersonne = idPersonne;
+    }
 }
