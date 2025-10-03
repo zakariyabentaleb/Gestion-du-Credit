@@ -2,6 +2,7 @@ import dao.DatabaseConnection;
 import dao.EmployeDAO;
 import model.entities.Employe;
 import model.enums.SecteurEmploi;
+import view.MenuView;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,6 +13,8 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws SQLException {
-        Connection connection = DatabaseConnection.getInstance().getConnection();
+        MenuView menuView = new MenuView();
+
+        menuView.affichermenu();
 
     }}
