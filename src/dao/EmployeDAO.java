@@ -3,6 +3,7 @@ package dao;
 import model.entities.Employe;
 import model.enums.SecteurEmploi;
 import model.enums.TypePersonne;
+import service.CreditScoringService;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class EmployeDAO {
             try (
                     PreparedStatement stmtPersonne = connection.prepareStatement(sqlPersonne);
             ) {
+                CreditScoringService scoringService = new CreditScoringService();
+                double score = scoringService.calculerScore(e);
+                e.setScore(score); // mettre à jour l'objet employé
 
                 stmtPersonne.setString(1, e.getNom());
                 stmtPersonne.setString(2, e.getPrenom());

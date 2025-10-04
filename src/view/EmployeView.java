@@ -2,6 +2,7 @@ package view;
 
 import model.entities.Employe;
 import model.enums.SecteurEmploi;
+import service.CreditScoringService;
 import service.EmployeService;
 
 import java.time.LocalDate;
@@ -78,10 +79,25 @@ public class EmployeView {
 
 
 
+        Employe e = new Employe(
+                nom, prenom, dateNaissance, ville, enfants,
+                investissement, placement, situation, LocalDate.now(),
+                0.0, // score temporaire
+                salaire, anciennete, poste, contrat, secteur
+        );
+
+        // Calculer le score automatiquement
+        CreditScoringService scoringService = new CreditScoringService();
+        double score = scoringService.calculerScore(e);
+        e.setScore(score);
+
+        // Insertion en base via le service
         employeService.ajouterEmploye(nom, prenom, dateNaissance, ville, enfants,
-                investissement, placement, situation, LocalDate.now(), 80,
+                investissement, placement, situation, LocalDate.now(), score,
                 salaire, anciennete, poste, contrat, secteur);
+
     }
+
 
     private void modifierEmploye() {
         System.out.print("ID de l’employé à modifier : ");
